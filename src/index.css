@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: birder-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  transition:
+    color 0.3s,
+    background-color 0.3s;
+  min-height: 100vh;
+}
+
+a.active {
+  @apply rounded-md bg-teal-500 text-teal-100;
+}
