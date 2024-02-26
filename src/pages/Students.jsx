@@ -1,6 +1,14 @@
+import { useEffect } from 'react';
+import { getStudents } from '../services/apiStudents';
+import Spinner from '../ui/Spinner';
+
 function Students() {
+  useEffect(function () {
+    getStudents().then((data) => console.log(data));
+  }, []);
   return (
     <>
+      <Spinner />
       <div className="flex justify-between">
         <h1 className="text-5xl font-semibold text-gray-800">All students</h1>
         <div className="flex items-center gap-6">
