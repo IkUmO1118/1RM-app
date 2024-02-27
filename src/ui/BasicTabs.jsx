@@ -15,7 +15,7 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ marginTop: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -27,7 +27,7 @@ function a11yProps({ index }) {
   };
 }
 
-export function BasicTabs({ color, workoutPart }) {
+function BasicTabs({ color, tabSize, workoutPart }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (value, newValue) => {
@@ -46,7 +46,7 @@ export function BasicTabs({ color, workoutPart }) {
         >
           {workoutPart.map((option, i) => (
             <Tab
-              label={<Typography variant="h6">{option.part}</Typography>}
+              label={<Typography variant={tabSize}>{option.part}</Typography>}
               {...a11yProps(i)}
               key={i}
             />
@@ -61,3 +61,5 @@ export function BasicTabs({ color, workoutPart }) {
     </Box>
   );
 }
+
+export default BasicTabs;

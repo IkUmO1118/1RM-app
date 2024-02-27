@@ -1,10 +1,4 @@
-import { useEffect } from 'react';
-import { getStudents } from '../services/apiStudents';
-
 function Students() {
-  useEffect(function () {
-    getStudents().then((data) => console.log(data));
-  }, []);
   return (
     <>
       <div className="flex justify-between">
@@ -14,8 +8,6 @@ function Students() {
           <h1>Sort By</h1>
         </div>
       </div>
-
-      {/* <StudentTable /> */}
     </>
   );
 }

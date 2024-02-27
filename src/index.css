@@ -23,5 +23,5 @@ body {
 }
 
 a.active {
-  @apply rounded-md bg-teal-500 text-teal-100;
+  @apply rounded-md bg-emerald-900 text-emerald-50;
 }

@@ -1,4 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import Dashboard from './pages/Dashboard';
 import Students from './pages/Students';
 import Student from './pages/Student';
@@ -7,10 +10,18 @@ import Settings from './pages/Settings';
 import Login from './pages/Login';
 import Account from './pages/Account';
 import PageNotFonnd from './pages/PageNotFound';
-
 import AppLayout from './ui/AppLayout';
 import Workouts from './pages/Workouts';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 
 function App() {
   // Material UIのtheme colors customize
@@ -18,16 +29,24 @@ function App() {
     palette: {
       mode: 'light',
       primary: {
-        main: '#0d9488', // teal-600
-        light: '#5eead4', // teal-300
-        dark: '#115e59', // teal-800
+        main: '#022c22', // emerald-950
+        // light: '#5eead4', // teal-300
+        // dark: '#115e59', // teal-800
       },
+    },
+    typography: {
+      h6: {
+        fontSize: 11,
+        fontWeight: 500,
+      },
+      fontFamily: ['Geologica'].join(','),
     },
   });
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <CssBaseline />
         <BrowserRouter>
           <Routes>
@@ -45,8 +64,8 @@ function App() {
             <Route path="*" element={<PageNotFonnd />} />
           </Routes>
         </BrowserRouter>
-      </ThemeProvider>
-    </>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 
