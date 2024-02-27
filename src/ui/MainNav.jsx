@@ -31,11 +31,11 @@ function MainNav() {
         </li>
         <li>
           <NavLink
-            to="/trainingMenus"
+            to="/workouts"
             className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-teal-50 transition-all duration-300 hover:bg-teal-500 hover:text-teal-100"
           >
             <HiOutlineClipboardDocumentList className="h-8 w-8 text-teal-50" />
-            <span>Menus</span>
+            <span>Workouts</span>
           </NavLink>
         </li>
         <li>
