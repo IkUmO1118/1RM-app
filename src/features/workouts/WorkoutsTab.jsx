@@ -1,10 +1,5 @@
 import BasicTabs from '../../ui/BasicTabs';
-import AbsTab from './AbsTab';
-import ArmsTab from './ArmsTab';
-import BackTab from './BackTab';
-import ChestTab from './ChestTab';
-import LegsTab from './LegsTab';
-import ShoulderTab from './ShoulderTab';
+import WorkoutsTable from './WorkoutsTable';
 import { useWorkouts } from './useWorkouts';
 
 function WorkoutsTab() {
@@ -14,12 +9,62 @@ function WorkoutsTab() {
       color="primary"
       tabSize="h6"
       workoutPart={[
-        { part: 'Chest', component: <ChestTab /> },
-        { part: 'Back', component: <BackTab /> },
-        { part: 'Shoulder', component: <ShoulderTab /> },
-        { part: 'Arms', component: <ArmsTab /> },
-        { part: 'Legs', component: <LegsTab /> },
-        { part: 'Abs', component: <AbsTab /> },
+        {
+          part: 'Chest',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter((workout) => workout.part === 'chest')}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        {
+          part: 'Back',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter((workout) => workout.part === 'back')}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        {
+          part: 'Shoulder',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter(
+                (workout) => workout.part === 'shoulder',
+              )}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        {
+          part: 'Arms',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter((workout) => workout.part === 'arms')}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        {
+          part: 'Legs',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter((workout) => workout.part === 'legs')}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        {
+          part: 'Abs',
+          component: (
+            <WorkoutsTable
+              workouts={workouts?.filter((workout) => workout.part === 'bs')}
+              isLoading={isLoading}
+            />
+          ),
+        },
       ]}
     />
   );

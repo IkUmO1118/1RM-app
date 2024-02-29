@@ -29,7 +29,8 @@ function App() {
     palette: {
       mode: 'light',
       primary: {
-        main: '#022c22', // emerald-950
+        // main: '#022c22', // emerald-950
+        main: '#10b981', // emerald-950
         // light: '#5eead4', // teal-300
         // dark: '#115e59', // teal-800
       },

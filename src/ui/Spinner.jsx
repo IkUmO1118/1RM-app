@@ -3,7 +3,7 @@ function Spinner() {
     <div role="status">
       <svg
         aria-hidden="true"
-        className="h-24 w-24 animate-spin fill-teal-600 text-gray-200"
+        className="mx-auto my-16 h-24 w-24 animate-spin fill-green-700 text-gray-200"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

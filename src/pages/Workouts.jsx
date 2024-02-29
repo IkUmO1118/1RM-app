@@ -12,6 +12,7 @@ function Workouts() {
             Create workout
           </button>
         </div>
+
         <WorkoutsTab />
       </div>
     </>
