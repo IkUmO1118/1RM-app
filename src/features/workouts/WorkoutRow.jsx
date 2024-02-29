@@ -1,4 +1,4 @@
-import { HiOutlineTrash } from 'react-icons/hi2';
+import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
 import Table from '../../ui/Table';
 
 function WorkoutRow({ workout }) {
@@ -23,16 +23,21 @@ function WorkoutRow({ workout }) {
       </div>
       <div className="flex self-center text-2xl">{equipment}</div>
       <div
-        className={`mx-auto my-4 flex self-center rounded-md  bg-green-100 px-4 py-1 text-xl font-medium text-green-700`}
+        className={`mx-auto my-4 flex self-center rounded-lg  bg-green-100 px-4 py-1 text-xl font-medium text-green-700`}
       >
         {part}
       </div>
       <div className="font-sono bg flex self-center text-lg font-normal">
         {awareness}
       </div>
-      <button className="flex self-center justify-self-end">
-        <HiOutlineTrash className="h-6 w-6 " />
-      </button>
+      <div className="flex justify-around self-center">
+        <button className="items-center p-1 hover:bg-slate-200">
+          <HiOutlinePencil className="h-6 w-6" />
+        </button>
+        <button className="items-center p-1  hover:bg-slate-200">
+          <HiOutlineTrash className="h-6 w-6" />
+        </button>
+      </div>
     </Table.Row>
   );
 }

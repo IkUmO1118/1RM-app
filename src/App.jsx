@@ -30,9 +30,9 @@ function App() {
       mode: 'light',
       primary: {
         // main: '#022c22', // emerald-950
-        main: '#10b981', // emerald-950
-        // light: '#5eead4', // teal-300
-        // dark: '#115e59', // teal-800
+        main: '#10b981', // emerald-500
+        light: '#34d399', //emerald-400
+        dark: '#065f46', // emerald-800
       },
     },
     typography: {

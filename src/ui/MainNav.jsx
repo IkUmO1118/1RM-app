@@ -1,11 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import {
-  HiOutlineClipboardDocumentList,
-  HiOutlineCog6Tooth,
-  HiOutlineHome,
-  HiOutlineUserGroup,
-  HiOutlineUserPlus,
-} from 'react-icons/hi2';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 
 function MainNav() {
   return (
@@ -14,45 +12,96 @@ function MainNav() {
         <li>
           <NavLink
             to="/dashboard"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900  active:bg-emerald-900 active:text-zinc-400"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
           >
-            <HiOutlineHome className="h-8 w-8 text-zinc-400" />
+            <HomeOutlinedIcon
+              edge="start"
+              color="green"
+              sx={{
+                width: '2.2rem',
+                height: '2.2rem',
+                '.active &': {
+                  color: 'green[50]',
+                },
+              }}
+            />
             <span>Home</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/students"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 "
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
           >
-            <HiOutlineUserGroup className="h-8 w-8 text-zinc-400" />
+            <PeopleAltOutlinedIcon
+              edge="start"
+              color="green"
+              sx={{
+                width: '2.2rem',
+                height: '2.2rem',
+                '.active &': {
+                  color: 'green[50]',
+                },
+              }}
+            />
             <span>Students</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/workouts"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 "
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
           >
-            <HiOutlineClipboardDocumentList className="h-8 w-8 text-zinc-400" />
+            <AssignmentOutlinedIcon
+              edge="start"
+              color="green"
+              sx={{
+                width: '2.2rem',
+                height: '2.2rem',
+                '.active &': {
+                  color: 'green[50]',
+                },
+              }}
+            />
+
             <span>Workouts</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/users"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 "
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
           >
-            <HiOutlineUserPlus className="h-8 w-8 text-zinc-400" />
+            <PersonAddAltOutlinedIcon
+              edge="start"
+              color="green"
+              sx={{
+                width: '2.2rem',
+                height: '2.2rem',
+                '.active &': {
+                  color: 'green[50]',
+                },
+              }}
+            />
             <span>Users</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/settings"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 "
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
           >
-            <HiOutlineCog6Tooth className="h-8 w-8 text-zinc-400" />
+            <SettingsOutlinedIcon
+              edge="start"
+              color="green"
+              sx={{
+                width: '2.2rem',
+                height: '2.2rem',
+                '.active &': {
+                  color: 'green[50]',
+                },
+              }}
+            />
             <span>Settings</span>
           </NavLink>
         </li>
