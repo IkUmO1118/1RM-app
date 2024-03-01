@@ -1,25 +1,28 @@
 import { useState } from 'react';
 
-function Example() {
-  const [checked, setChecked] = useState(false);
+function Switch({ id, status }) {
+  const [checked, setChecked] = useState(
+    status === 'checked-out' ? false : true,
+  );
 
   const toggleSwitch = () => {
     setChecked((prevChecked) => !prevChecked);
+    // check-in-outを操作できる(update student's status)
   };
 
   return (
     <div className="flex items-center">
-      <label htmlFor="toggle" className="flex cursor-pointer items-center">
+      <label htmlFor={id} className="flex cursor-pointer items-center">
         <div className="relative">
           <input
             type="checkbox"
-            id="toggle"
+            id={id}
             className="sr-only"
             checked={checked}
             onChange={toggleSwitch}
           />
           <div
-            className={`${checked ? 'bg-teal-900' : 'bg-teal-700'}
+            className={`${checked ? 'bg-teal-600' : 'bg-green-900'}
           relative inline-flex h-[32px] w-[56px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out `}
           ></div>
           <div
@@ -32,4 +35,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default Switch;

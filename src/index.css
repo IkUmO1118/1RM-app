@@ -21,3 +21,32 @@ body {
     background-color 0.3s;
   min-height: 100vh;
 }
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+select:disabled,
+input:disabled {
+  background-color: #374151;
+  color: #9ca3af;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #16a34a;
+  outline-offset: -1px;
+}
