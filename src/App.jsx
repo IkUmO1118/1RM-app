@@ -13,6 +13,7 @@ import PageNotFonnd from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
 import Workouts from './pages/Workouts';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,7 +31,7 @@ function App() {
       mode: 'light',
       primary: {
         // main: '#022c22', // emerald-950
-        main: '#10b981', // emerald-500
+        main: '#059669', // emerald-500
         light: '#34d399', //emerald-400
         dark: '#065f46', // emerald-800
       },
@@ -55,7 +56,7 @@ function App() {
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="students" element={<Students />} />
-              <Route path="students/:studentsId" element={<Student />} />
+              <Route path="students/:studentId" element={<Student />} />
               <Route path="Users" element={<Users />} />
               <Route path="workouts" element={<Workouts />} />
               <Route path="settings" element={<Settings />} />
@@ -65,6 +66,26 @@ function App() {
             <Route path="*" element={<PageNotFonnd />} />
           </Routes>
         </BrowserRouter>
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: '8px' }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: '16px',
+              maxWidth: '500px',
+              padding: '16px 24px',
+              backgroundColor: '#f9fafb',
+              color: '#374151',
+            },
+          }}
+        />
       </QueryClientProvider>
     </ThemeProvider>
   );

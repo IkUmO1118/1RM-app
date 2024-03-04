@@ -9,7 +9,7 @@ function StudentsTable() {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table columns="grid-cols-[1fr_3fr_1.6fr_1.6fr_0.6fr_0.6fr]">
+    <Table columns="grid-cols-[0.6fr_3fr_1.6fr_1.6fr_0.6fr_0.6fr]">
       <Table.Header>
         <div></div>
         <div>名前</div>

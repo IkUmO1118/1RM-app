@@ -8,7 +8,7 @@ function WorkoutsTab() {
     <BasicTabs
       color="primary"
       tabSize="h6"
-      workoutPart={[
+      tabContent={[
         {
           part: 'Chest',
           component: (

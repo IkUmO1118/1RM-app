@@ -24,7 +24,7 @@ function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
     <div
-      className={`grid ${columns} col-span-full border-b border-gray-100 bg-gray-100 px-6 py-4 text-2xl font-semibold text-gray-600`}
+      className={`grid ${columns} col-span-full  border-b border-gray-100 bg-gray-100 px-6 py-4 text-2xl font-semibold text-gray-600`}
     >
       {children}
     </div>

@@ -1,17 +1,47 @@
-import { format } from 'date-fns';
+import {
+  differenceInCalendarDays,
+  format,
+  intervalToDuration,
+  isAfter,
+  isBefore,
+  isToday,
+} from 'date-fns';
 import Switch from '../../ui/Switch';
 import Table from '../../ui/Table';
 import { HiOutlineTrash } from 'react-icons/hi2';
 import { HiOutlineArrowsExpand } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
 function StudentRow({ student }) {
-  const { id, fullName, email, status, startDate, endDate, contractPeriod } =
-    student;
+  const navigate = useNavigate();
+  const {
+    id: studentId,
+    fullName,
+    email,
+    status,
+    startDate,
+    endDate,
+    contractPeriod,
+  } = student;
   const isCheckedIn = status !== 'checked-out';
+
+  function calcDuration() {
+    const { years, months, days } = intervalToDuration({
+      start: new Date(endDate),
+      end: new Date(),
+    });
+    if (months < 1 && years < 1) return `${days} days`;
+    if (years <= 0 && months >= 1) return `${months} months`;
+    if (years >= 1) return `${years} years`;
+  }
 
   return (
     <Table.Row>
-      <Switch id={`switch-${id}`} status={status} />
+      {status === 'checked-in' || status === 'checked-out' ? (
+        <Switch id={studentId} status={status} />
+      ) : (
+        <div></div>
+      )}
 
       <div className="mr-4 flex flex-col border-r-2">
         <div className="text-2xl text-gray-600">{fullName}</div>
@@ -22,7 +52,15 @@ function StudentRow({ student }) {
         <div className="font-sans text-xl font-semibold text-gray-600">
           {format(new Date(startDate), 'MMM dd yyyy')}
         </div>
-        <span></span>
+        <span className="font-sans text-lg text-gray-400">
+          {isToday(new Date(startDate)) && 'Today ~'}
+          {isAfter(new Date(), new Date(startDate)) &&
+            isBefore(new Date(), new Date(endDate)) &&
+            `${differenceInCalendarDays(new Date(), new Date(startDate)) + 1}日目`}
+          {isBefore(new Date(), new Date(startDate)) &&
+            `${differenceInCalendarDays(new Date(startDate), new Date())}日後~`}
+          {isBefore(new Date(endDate), new Date()) && `${calcDuration()} ago`}
+        </span>
       </div>
 
       <div>
@@ -30,10 +68,13 @@ function StudentRow({ student }) {
           {format(new Date(endDate), 'MMM dd yyyy')}
         </div>
         <span className="font-sans text-lg text-gray-400">
-          {contractPeriod} months contract
+          {contractPeriod || 1} months contract
         </span>
       </div>
-      <button disabled={!isCheckedIn}>
+      <button
+        disabled={!isCheckedIn}
+        onClick={() => navigate(`/students/${studentId}`)}
+      >
         <HiOutlineArrowsExpand
           className={`flex h-11 w-11 self-center justify-self-center rounded-full px-2 py-2 ${isCheckedIn ? 'hover:bg-gray-200' : ''}`}
         />

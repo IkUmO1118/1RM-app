@@ -1,5 +1,7 @@
+import StudentDetail from '../features/students/StudentDetail';
+
 function Student() {
-  return <div>student</div>;
+  return <StudentDetail />;
 }
 
 export default Student;

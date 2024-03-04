@@ -27,7 +27,7 @@ function a11yProps({ index }) {
   };
 }
 
-function BasicTabs({ color, tabSize, workoutPart }) {
+function BasicTabs({ color, tabSize, tabContent }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (value, newValue) => {
@@ -44,7 +44,7 @@ function BasicTabs({ color, tabSize, workoutPart }) {
           indicatorColor={color}
           aria-label="basic tabs example"
         >
-          {workoutPart.map((option, i) => (
+          {tabContent.map((option, i) => (
             <Tab
               label={<Typography variant={tabSize}>{option.part}</Typography>}
               {...a11yProps(i)}
@@ -53,7 +53,7 @@ function BasicTabs({ color, tabSize, workoutPart }) {
           ))}
         </Tabs>
       </Box>
-      {workoutPart.map((option, i) => (
+      {tabContent.map((option, i) => (
         <CustomTabPanel value={value} index={i} key={i}>
           {option.component}
         </CustomTabPanel>
