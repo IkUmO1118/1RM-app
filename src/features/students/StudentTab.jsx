@@ -1,5 +1,7 @@
 import BasicTabs from '../../ui/BasicTabs';
 import StudentTrack from './StudentTrack';
+import StudentSetting from './StudentSetting';
+import StudentCreate from './StudentCreate';
 
 function StudentTab() {
   return (
@@ -12,12 +14,12 @@ function StudentTab() {
           component: <StudentTrack />,
         },
         {
-          part: 'Talk',
-          component: <StudentTrack />,
+          part: 'Settings',
+          component: <StudentSetting />,
         },
         {
-          part: 'Settings',
-          component: <StudentTrack />,
+          part: 'Create',
+          component: <StudentCreate />,
         },
       ]}
     />

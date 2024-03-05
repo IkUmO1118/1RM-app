@@ -28,7 +28,7 @@ function StudentDetail() {
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div className="flex gap-8">
           <h1 className="text-5xl font-semibold text-gray-800">

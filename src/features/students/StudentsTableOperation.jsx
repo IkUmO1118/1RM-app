@@ -1,7 +1,7 @@
 import Filter from '../../ui/Filter';
 import SortBy from '../../ui/SortBy';
 
-function StudentTableOperation() {
+function StudentsTableOperation() {
   return (
     <div className="mt-8 flex items-center gap-6">
       <Filter
@@ -28,4 +28,4 @@ function StudentTableOperation() {
   );
 }
 
-export default StudentTableOperation;
+export default StudentsTableOperation;

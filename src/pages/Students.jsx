@@ -1,4 +1,4 @@
-import StudentTableOperation from '../features/students/StudentTableOperation';
+import StudentTableOperation from '../features/students/StudentsTableOperation';
 import StudentsTable from '../features/students/StudentsTable';
 
 function Students() {
