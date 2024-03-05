@@ -18,12 +18,14 @@ function WorkoutRow({ workout }) {
         alt="workoutImage"
         src={image}
       />
-      <div className=" font-sono flex self-center text-2xl font-semibold text-gray-600">
+      <div className=" font-sono flex self-center text-2xl font-normal">
         {workoutName}
       </div>
-      <div className="flex self-center text-2xl">{equipment}</div>
+      <div className="flex self-center text-xl font-medium text-gray-600">
+        {equipment}
+      </div>
       <div
-        className={`mx-auto my-4 flex self-center rounded-lg  bg-green-100 px-4 py-1 text-xl font-medium text-green-700`}
+        className={`mx-auto my-4 flex self-center justify-self-start rounded-lg  bg-green-100 px-4 py-1 text-xl font-medium text-green-700`}
       >
         {part}
       </div>

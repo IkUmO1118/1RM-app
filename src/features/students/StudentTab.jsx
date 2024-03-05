@@ -2,6 +2,7 @@ import BasicTabs from '../../ui/BasicTabs';
 import StudentTrack from './StudentTrack';
 import StudentSetting from './StudentSetting';
 import StudentCreate from './StudentCreate';
+import StudentCalender from './StudentCalender';
 
 function StudentTab() {
   return (
@@ -10,11 +11,15 @@ function StudentTab() {
       tabSize="h6"
       tabContent={[
         {
-          part: 'Tarck',
+          part: 'calender',
+          component: <StudentCalender />,
+        },
+        {
+          part: 'track',
           component: <StudentTrack />,
         },
         {
-          part: 'Settings',
+          part: 'settings',
           component: <StudentSetting />,
         },
         {

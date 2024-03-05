@@ -1,11 +1,7 @@
-import HeaderAccount from '../ui/HeaderAccount';
-
 function Account() {
   return (
     <>
-      <HeaderAccount />
-
-      <div className="w-full bg-red-200">account</div>
+      <h1>account</h1>
     </>
   );
 }

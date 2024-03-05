@@ -7,7 +7,7 @@ function AppLayout() {
     <div className="grid h-screen grid-cols-[26rem_1fr] grid-rows-[auto_1fr]">
       <Header />
       <Sidebar />
-      <main className="bg-gray-50 px-20 pb-24 pt-16">
+      <main className="overflow-y-auto bg-gray-50 px-20 pb-24 pt-16">
         <Outlet />
       </main>
     </div>

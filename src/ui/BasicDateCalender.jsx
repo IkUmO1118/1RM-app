@@ -6,20 +6,23 @@ const StyleWrapper = styled.div`
   .fc .fc-toolbar.fc-header-toolbar {
     margin-bottom: 0;
   }
-  .fc .fc-toolbar-title {
-    font-size: 1.6rem;
-    color: #37362f;
+  .fc-toolbar-chunk {
+    padding: 0 0.4rem;
+    border: 1px solid #edebe6;
+    border-radius: 100px;
   }
   .fc .fc-button-primary {
     font-size: 1.2rem;
     background-color: #ffffff00;
-    color: #acaba9;
+    color: #9ca3af;
     border: none;
     outline: none;
   }
   .fc .fc-today-button {
     background-color: #ffffff00;
-    color: #37362f;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #9ca3af;
     border: none;
     outline: none;
   }
@@ -82,9 +85,9 @@ const StyleWrapper = styled.div`
     margin-top: 0;
   }
   .fc {
-    width: 80%;
     margin: 0 auto;
-    height: 45rem;
+    height: 58rem;
+    gap: 1.8rem;
   }
 `;
 
@@ -94,7 +97,8 @@ function BasicDateCalender({ array }) {
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
-        headerToolbar={{ left: 'title', center: '', right: 'prev today next' }}
+        // headerToolbar={{ left: 'title', center: '', right: 'prev today next' }}
+        headerToolbar={{ left: 'prev today next', center: '', right: '' }}
         businessHours={{ daysOfWeek: [1, 2, 3, 4, 5] }}
         eventBackgroundColor={'#FFFFFF'}
         eventTextColor={'#ffffff'}

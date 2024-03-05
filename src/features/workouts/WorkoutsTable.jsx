@@ -6,7 +6,7 @@ function WorkoutsTable({ workouts, isLoading }) {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table columns="grid-cols-[0.6fr_1.4fr_1.4fr_0.7fr_2.0fr_0.3fr]">
+    <Table columns="grid-cols-[0.6fr_1.4fr_1.1fr_0.6fr_2.0fr_0.3fr]">
       <Table.Header>
         <div></div>
         <div>種目名</div>

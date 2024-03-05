@@ -11,7 +11,7 @@ const TableContext = createContext();
 function Table({ columns, children }) {
   return (
     <TableContext.Provider value={{ columns }}>
-      <div className="max-h-[600px] w-full overflow-y-auto rounded-lg border border-gray-200 bg-gray-50">
+      <div className="max-h-[590px] w-full overflow-y-auto rounded-lg border border-gray-200 bg-gray-50">
         <div className={`grid ${columns} h-full overflow-hidden`}>
           {children}
         </div>

@@ -76,7 +76,7 @@ function StudentRow({ student }) {
         onClick={() => navigate(`/students/${studentId}`)}
       >
         <HiOutlineArrowsExpand
-          className={`flex h-11 w-11 self-center justify-self-center rounded-full px-2 py-2 ${isCheckedIn ? 'hover:bg-gray-200' : ''}`}
+          className={`flex h-11 w-11 self-center justify-self-center rounded-md px-2 py-2 transition-all duration-200 ${isCheckedIn ? 'hover:bg-gray-200' : ''}`}
         />
       </button>
       <button>
