@@ -22,6 +22,7 @@ function StudentDetail() {
   } = student;
 
   const statusToTagName = {
+    provisionaly: 'bg-red-100 text-red-700',
     expired: 'bg-sky-100 text-sky-700',
     'checked-in': 'bg-green-100 text-green-700',
     'checked-out': 'bg-silver-100 text-silver-700',

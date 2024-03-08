@@ -1,10 +1,15 @@
 import BasicTabs from '../../ui/BasicTabs';
-import StudentTrack from './StudentTrack';
-import StudentSetting from './StudentSetting';
-import StudentCreate from './StudentCreate';
-import StudentCalender from './StudentCalender';
+import SessionsTrack from '../sessions/SessionsTrack';
+import SessionsSetting from '../sessions/SessionsSetting';
+import SessionsCalender from '../sessions/SessionsCalender';
+import { useStudents_Session } from '../sessions/useStudents_Session';
+import Spinner from '../../ui/Spinner';
 
 function StudentTab() {
+  const { students_session, isLoading } = useStudents_Session();
+
+  if (isLoading) return <Spinner />;
+
   return (
     <BasicTabs
       color="primary"
@@ -12,19 +17,15 @@ function StudentTab() {
       tabContent={[
         {
           part: 'calender',
-          component: <StudentCalender />,
+          component: <SessionsCalender students_session={students_session} />,
         },
         {
           part: 'track',
-          component: <StudentTrack />,
+          component: <SessionsTrack />,
         },
         {
           part: 'settings',
-          component: <StudentSetting />,
-        },
-        {
-          part: 'Create',
-          component: <StudentCreate />,
+          component: <SessionsSetting />,
         },
       ]}
     />

@@ -11,6 +11,7 @@ function StudentsTableOperation() {
           { value: 'checked-out', label: 'Checked out' },
           { value: 'checked-in', label: 'Checked in' },
           { value: 'expired', label: 'Expired' },
+          { value: 'provisionaly', label: 'Provisionaly' },
         ]}
       />
       <SortBy

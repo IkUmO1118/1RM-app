@@ -6,13 +6,13 @@ export function useStudents_Session() {
   const { studentId } = useParams();
 
   const {
+    data: students_session,
     isLoading,
-    data: students_Session,
     error,
   } = useQuery({
     queryKey: ['students_session'],
     queryFn: () => getStudentsSession(studentId),
   });
 
-  return { isLoading, error, students_Session };
+  return { students_session, isLoading, error };
 }

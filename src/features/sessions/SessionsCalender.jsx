@@ -1,7 +1,5 @@
 import { format } from 'date-fns';
 import BasicDateCalendar from '../../ui/BasicDateCalender';
-import Spinner from '../../ui/Spinner';
-import { useStudents_Session } from '../session/useStudents_Session';
 import { HiOutlinePlusSm } from 'react-icons/hi';
 
 const eventOfPart = {
@@ -13,16 +11,12 @@ const eventOfPart = {
   abs: { backgroundColor: '#fef3c7', textColor: '#b45309' }, //Amber-100-700
 };
 
-function StudentCalender() {
-  const { students_Session, isLoading } = useStudents_Session();
-
-  const workoutsArray = students_Session?.map((workout) => ({
+function SessionsCalender({ students_session }) {
+  const workoutsArray = students_session?.map((workout) => ({
     title: workout.session.workoutMenu,
     start: format(new Date(workout.created_at), 'yyyy-MM-dd'),
     ...eventOfPart[workout.session.workoutMenu],
   }));
-
-  if (isLoading) return <Spinner />;
 
   return (
     <div className="relative">
@@ -35,4 +29,4 @@ function StudentCalender() {
   );
 }
 
-export default StudentCalender;
+export default SessionsCalender;
