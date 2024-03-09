@@ -14,6 +14,7 @@ import AppLayout from './ui/AppLayout';
 import Workouts from './pages/Workouts';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+import Tracks from './pages/Tracks';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -57,6 +58,10 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="students" element={<Students />} />
               <Route path="students/:studentId" element={<Student />} />
+              <Route
+                path="students/:studentId/part/:partId"
+                element={<Tracks />}
+              />
               <Route path="Users" element={<Users />} />
               <Route path="workouts" element={<Workouts />} />
               <Route path="settings" element={<Settings />} />

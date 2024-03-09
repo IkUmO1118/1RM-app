@@ -29,7 +29,7 @@ async function fetchSessionData(sessions) {
     // 一つのsessino-4種類のworkout-(4set * rep)を算出する
     const sessionVolume = calcVolume(data);
     return {
-      date: format(session.created_at, 'y/MM/dd'),
+      date: format(session.created_at, 'MM/dd'),
       volume: sessionVolume,
     };
   });
