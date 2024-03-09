@@ -1,10 +1,9 @@
-import { useQueryClient } from '@tanstack/react-query';
 import SessionsCard from './SessionsCard';
 
-function SessionsTrack() {
+function SessionsTrack({ students_session }) {
   // students_session cacheの取得
-  const queryClient = useQueryClient();
-  const students_session = queryClient.getQueriesData('students_session')[1][1];
+  // const queryClient = useQueryClient();
+  // const students_session = queryClient.getQueriesData('students_session')[1][1];
 
   const chestSession = [];
   const shoulderSession = [];

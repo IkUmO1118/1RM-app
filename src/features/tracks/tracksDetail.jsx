@@ -87,8 +87,8 @@ function TrackDetail() {
         </button>
       </div>
 
-      <div className="flex flex-col gap-7 rounded-xl bg-white p-6">
-        <h1 className="text-3xl font-medium">Transition volume</h1>
+      <div className="flex flex-col gap-9 rounded-xl bg-white py-10">
+        <h1 className="ml-8 text-4xl font-semibold">Transition volume</h1>
         <WorkoutChart data={data} part={partId} xaxis={'date'} height={400}>
           <Tooltip content={<CustomTooltip />} />
         </WorkoutChart>

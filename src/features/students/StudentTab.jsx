@@ -21,7 +21,7 @@ function StudentTab() {
         },
         {
           part: 'track',
-          component: <SessionsTrack />,
+          component: <SessionsTrack students_session={students_session} />,
         },
         {
           part: 'settings',
