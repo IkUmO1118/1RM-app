@@ -1,5 +1,5 @@
 import { formatDistance, parseISO } from 'date-fns';
-import { differenceInDays } from 'date-fns/esm';
+import { differenceInDays } from 'date-fns';
 
 // We want to make this function work for both Date objects and strings (which come from Supabase)
 export const subtractDates = (dateStr1, dateStr2) =>
@@ -28,3 +28,29 @@ export const formatCurrency = (value) =>
   new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(
     value,
   );
+
+// data == nullの時は0をセットする
+export function nullSetDefault(value) {
+  if (value === null) return 0;
+  else return value;
+}
+
+// track == nullの時は無視する
+export function IgnoreNull(value, arr) {
+  if (value === null) return;
+  else arr.push(value);
+}
+
+export function calcSessionVolume(data) {
+  // session内にある一つ一つのtrackのvolume(rep * weight)を文、配列にまとめる
+  const trackVolume = data.map((track) => {
+    return (
+      nullSetDefault(track.set_1) * nullSetDefault(track.weight_1) +
+      nullSetDefault(track.set_2) * nullSetDefault(track.weight_2) +
+      nullSetDefault(track.set_3) * nullSetDefault(track.weight_3) +
+      nullSetDefault(track.set_4) * nullSetDefault(track.weight_4)
+    );
+  });
+  // 一つのsessionのvolumeを全て合算した値をreturnする
+  return trackVolume.reduce((acc, cur) => acc + cur, 0);
+}

@@ -1,3 +1,4 @@
+import { toDate } from 'date-fns';
 import {
   AreaChart,
   Area,
@@ -30,11 +31,13 @@ const colors = {
 // };
 
 function WorkoutChart({ height, data, part, xaxis = '', children }) {
+  const sortedDataByDate = data.sort((a, b) => toDate(a.date) - toDate(b.date));
+
   return (
     <div style={{ width: '100%', height: height }}>
       <ResponsiveContainer>
         <AreaChart
-          data={data}
+          data={sortedDataByDate}
           margin={{
             top: 10,
             right: 30,

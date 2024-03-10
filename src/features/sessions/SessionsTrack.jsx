@@ -1,3 +1,4 @@
+import Empty from '../../ui/Empty';
 import SessionsCard from './SessionsCard';
 
 function SessionsTrack({ students_session }) {
@@ -61,6 +62,7 @@ function SessionsTrack({ students_session }) {
       {absSession.length !== 0 && (
         <SessionsCard sessions={absSession} part={'abs'} key={'abs'} />
       )}
+      {!students_session.length && <Empty resourceName={'Student tracks'} />}
     </div>
   );
 }
