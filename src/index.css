@@ -40,8 +40,8 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: #374151;
-  color: #9ca3af;
+  background-color: ##e5e7eb !important;
+  color: ##6b7280 !important;
 }
 
 input:focus,
@@ -49,4 +49,24 @@ textarea:focus,
 select:focus {
   outline: 2px solid #16a34a;
   outline-offset: -1px;
+}
+
+input[inputtype='datepicker'] {
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  background-color: #f9fafb; /* bg-gray-50 */
+  padding: 0.75rem; /* p-3 */
+  padding-left: 4rem; /* pl-16 */
+  font-size: 1.25rem; /* text-xl */
+  color: #1f2937; /* text-gray-900 */
+}
+
+input[inputtype='datepicker']:focus {
+  border-color: #10b981; /* focus:border-emerald-500 */
+  ring-color: #10b981; /* focus:ring-emerald-500 */
+}
+
+input[inputtype='datepicker']:disabled {
+  cursor: not-allowed; /* disabled:cursor-not-allowed */
+  opacity: 0.5; /* disabled:opacity-50 */
 }

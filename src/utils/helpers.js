@@ -54,3 +54,90 @@ export function calcSessionVolume(data) {
   // 一つのsessionのvolumeを全て合算した値をreturnする
   return trackVolume.reduce((acc, cur) => acc + cur, 0);
 }
+
+export const customTheme = {
+  root: {
+    base: 'relative w-96 p-4',
+  },
+  popup: {
+    root: {
+      base: 'absolute top-10 z-50 w-[30rem] pt-2',
+      inline: 'relative top-0 z-auto',
+      inner: 'rounded-lg bg-white p-4 shadow-lg dark:bg-gray-700',
+    },
+    header: {
+      base: '',
+      title:
+        'px-2 py-3 text-center font-semibold text-gray-900 dark:text-white',
+      selectors: {
+        base: 'flex justify-between mb-6',
+        button: {
+          base: 'text-2xl rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-700 font-semibold py-2.5 px-5 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 view-switch',
+          prev: 'text-3xl',
+          next: 'text-3xl',
+          view: '',
+        },
+      },
+    },
+    view: {
+      base: 'p-1',
+    },
+    footer: {
+      base: 'flex mt-6 space-x-2',
+      button: {
+        base: 'w-full rounded-lg px-5 py-2 text-center text-xl font-medium focus:ring-4 focus:ring-emerald-300',
+        today:
+          'bg-emerald-700 text-white hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-700',
+        clear:
+          'border border-gray-300 bg-white text-gray-900 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600',
+      },
+    },
+  },
+  views: {
+    days: {
+      header: {
+        base: 'grid grid-cols-7 mb-2',
+        title:
+          'dow h-8 text-center text-xl font-medium leading-6 text-gray-500 dark:text-gray-400',
+      },
+      items: {
+        base: 'grid w-86 grid-cols-7',
+        item: {
+          base: 'block flex-1 cursor-pointer rounded-lg border-0 text-center text-xl font-semibold py-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600 ',
+          selected: 'bg-emerald-700 text-white hover:bg-emerald-600',
+          disabled: 'text-gray-500',
+        },
+      },
+    },
+    months: {
+      items: {
+        base: 'grid w-86 grid-cols-4',
+        item: {
+          base: 'block flex-1 cursor-pointer rounded-lg border-0 text-center text-xl font-semibold p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600',
+          selected: 'bg-emerald-700 text-white hover:bg-emerald-600',
+          disabled: 'text-gray-500',
+        },
+      },
+    },
+    years: {
+      items: {
+        base: 'grid w-86 grid-cols-4',
+        item: {
+          base: 'block flex-1 cursor-pointer rounded-lg border-0 text-center text-xl font-semibold p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600 text-gray-900',
+          selected: 'bg-emerald-700 text-white hover:bg-emerald-600',
+          disabled: 'text-gray-500',
+        },
+      },
+    },
+    decades: {
+      items: {
+        base: 'grid w-86 grid-cols-4',
+        item: {
+          base: 'block flex-1 cursor-pointer rounded-lg border-0 text-center text-xl font-semibold p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600 text-gray-900',
+          selected: 'bg-emerald-700 text-white hover:bg-emerald-600',
+          disabled: 'text-gray-500',
+        },
+      },
+    },
+  },
+};
