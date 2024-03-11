@@ -1,7 +1,20 @@
+import { useState } from 'react';
 import InputDate from '../../ui/InputDate';
 import InputNumber from '../../ui/InputNumber';
 
-function UpdateStudentContractForm({ id, startDate, endDate, contractPeriod }) {
+function UpdateStudentContractForm({
+  id,
+  startDate: start,
+  endDate: end,
+  contractPeriod,
+  status,
+}) {
+  const [startDate, setStartDate] = useState(start);
+  const [endDate, setEndDate] = useState(end);
+  const [period, setPeriod] = useState(contractPeriod);
+
+  function handleClick() {}
+
   return (
     <div className="rounded-md border border-gray-100 bg-gray-100 px-10 py-10">
       <div className="flex gap-12 divide-x divide-gray-300">
@@ -10,7 +23,11 @@ function UpdateStudentContractForm({ id, startDate, endDate, contractPeriod }) {
             <label className="text-xl font-medium" htmlFor="startDate">
               Start date
             </label>
-            <InputDate id="startDate" />
+            <InputDate
+              id="startDate"
+              state={startDate}
+              setState={setStartDate}
+            />
           </div>
 
           <span className="mx-5 mt-7 text-2xl">to</span>
@@ -19,7 +36,7 @@ function UpdateStudentContractForm({ id, startDate, endDate, contractPeriod }) {
             <label className="text-xl font-medium" htmlFor="endDate">
               End date
             </label>
-            <InputDate id="endDate" />
+            <InputDate id="endDate" state={endDate} setState={setEndDate} />
           </div>
         </div>
         <div className="flex flex-col gap-2">
@@ -30,11 +47,18 @@ function UpdateStudentContractForm({ id, startDate, endDate, contractPeriod }) {
             Contract period
           </label>
           <div className="ml-12">
-            <InputNumber id="contractPeriod" />
+            <InputNumber
+              id="contractPeriod"
+              state={period}
+              setState={setPeriod}
+            />
           </div>
         </div>
       </div>
-      <button className="mt-8 rounded-md bg-emerald-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-600">
+      <button
+        onClick={handleClick}
+        className="mt-8 rounded-md bg-emerald-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-600"
+      >
         Update contract
       </button>
     </div>
