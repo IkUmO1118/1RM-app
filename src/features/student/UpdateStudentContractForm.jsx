@@ -27,6 +27,7 @@ function UpdateStudentContractForm({
               id="startDate"
               state={startDate}
               setState={setStartDate}
+              disabled={status === 'checked-in' && true}
             />
           </div>
 
@@ -36,7 +37,12 @@ function UpdateStudentContractForm({
             <label className="text-xl font-medium" htmlFor="endDate">
               End date
             </label>
-            <InputDate id="endDate" state={endDate} setState={setEndDate} />
+            <InputDate
+              id="endDate"
+              state={endDate}
+              setState={setEndDate}
+              disabled={true}
+            />
           </div>
         </div>
         <div className="flex flex-col gap-2">
@@ -44,13 +50,14 @@ function UpdateStudentContractForm({
             className=" ml-14 text-xl font-medium"
             htmlFor="contractPeriod"
           >
-            Contract period
+            契約期間
           </label>
           <div className="ml-12">
             <InputNumber
               id="contractPeriod"
               state={period}
               setState={setPeriod}
+              chengedSetState={setEndDate}
             />
           </div>
         </div>

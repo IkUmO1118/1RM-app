@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import UpdateStudentContractForm from '../student/UpdateStudentContractForm';
 import DeleteStudentForm from '../student/DeleteStudentForm';
+import { addMonths, format } from 'date-fns';
 
 function SessionsSetting() {
   const { studentId } = useParams();
@@ -33,9 +34,15 @@ function SessionsSetting() {
         <p className="mb-8 mt-12 text-2xl font-medium">Update contract</p>
         <UpdateStudentContractForm
           id={studentId}
-          startDate={startDate}
-          endDate={endDate}
-          contractPeriod={contractPeriod}
+          startDate={
+            status === 'expired' ? format(new Date(), 'y-MM-dd') : startDate
+          }
+          endDate={
+            status === 'expired'
+              ? format(addMonths(new Date(), 1), 'y-MM-dd')
+              : endDate
+          }
+          contractPeriod={status === 'expired' ? 1 : contractPeriod}
           status={status}
         />
       </div>

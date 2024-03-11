@@ -1,22 +1,24 @@
+import { addMonths, format, subMonths, toDate } from 'date-fns';
 import { HiOutlinePlus } from 'react-icons/hi';
 import { HiOutlineMinus } from 'react-icons/hi';
 
-function InputNumber({ state, setState, id }) {
+function InputNumber({ state, setState, id, chengedSetState }) {
   function handleInc() {
-    console.log('Inc date');
     if (state < 99) setState((el) => el + 1);
+    chengedSetState((date) => format(addMonths(toDate(date), 1), 'y-MM-dd'));
   }
 
   function handleDec() {
-    console.log('Dec date');
-    if (state > 1) setState((el) => el - 1);
+    if (state > 0) setState((el) => el - 1);
+    chengedSetState((date) => format(subMonths(toDate(date), 1), 'y-MM-dd'));
   }
 
   return (
     <div className="relative flex max-w-[13rem] items-center">
       <button
-        onClick={() => handleDec()}
+        onClick={handleDec}
         type="button"
+        disabled={state === 0 && true}
         className="rounded-s-lg border border-gray-300 bg-gray-100 p-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 "
       >
         <HiOutlineMinus className="h-5 w-5" />
@@ -24,14 +26,17 @@ function InputNumber({ state, setState, id }) {
       <input
         type="text"
         inputMode="numeric"
-        defaultValue={state}
+        // defaultValue={state}
+        onChange={() => {}}
+        value={state}
         className="block w-full border-x-0 border-gray-300 bg-gray-50 px-5 py-4 text-center text-xl text-gray-900"
         name="inputnumber"
         id={id}
       />
       <button
-        onClick={() => handleInc()}
+        onClick={handleInc}
         type="button"
+        disabled={state === 99 && true}
         className="rounded-e-lg border border-gray-300 bg-gray-100 p-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 "
       >
         <HiOutlinePlus className="h-5 w-5" />

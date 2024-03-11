@@ -11,7 +11,6 @@ function InputDate({ state, setState, disabled = false, id }) {
     <Datepicker
       theme={customTheme}
       disabled={disabled}
-      // selected={state}
       showtimeselect="true"
       onSelectedDateChanged={handleChange}
       timeformat="HH:mm"
