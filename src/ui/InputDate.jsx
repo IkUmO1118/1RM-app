@@ -2,7 +2,7 @@ import { addDays } from 'date-fns';
 import { Datepicker } from 'flowbite-react';
 import { customTheme } from '../utils/helpers';
 
-function InputDate({ state, handleFn, disabled = false }) {
+function InputDate({ state, handleFn, disabled = false, id }) {
   return (
     <Datepicker
       theme={customTheme}
@@ -20,6 +20,7 @@ function InputDate({ state, handleFn, disabled = false }) {
       minDate={new Date()}
       maxDate={addDays(new Date(), 365)}
       inputtype="datepicker"
+      id={id}
     />
   );
 }

@@ -57,7 +57,7 @@ export function calcSessionVolume(data) {
 
 export const customTheme = {
   root: {
-    base: 'relative w-96 p-4',
+    base: 'relative w-96',
   },
   popup: {
     root: {

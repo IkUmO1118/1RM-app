@@ -29,8 +29,7 @@ export async function getStudent(id) {
   return data;
 }
 
-export async function updateStudent(id, obj) {
-  console.log(obj);
+export async function updateStudentStatus(id, obj) {
   const { data, error } = await supabase
     .from('students')
     .update(obj)
@@ -41,6 +40,37 @@ export async function updateStudent(id, obj) {
   if (error) {
     console.error(error);
     throw new Error('Student could not be updated');
+  }
+
+  return data;
+}
+
+export async function updateStudentData({ id, studentName, contract }) {
+  let updateData;
+  if (studentName) updateData = { fullName: studentName };
+  if (contract) updateData = { contract };
+
+  const { data, error } = await supabase
+    .from('students')
+    .update(updateData)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error('Student could not be updated');
+  }
+
+  return data;
+}
+
+export async function deleteStudent(id) {
+  const { data, error } = await supabase.from('students').delete().eq('id', id);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Student could not be deleted');
   }
 
   return data;

@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { updateStudent } from '../../services/apiStudents';
+import { updateStudentStatus } from '../../services/apiStudents';
 
 export function useCheckInOutStudent() {
   const queryClient = useQueryClient();
 
   const { mutate: checkInOut, isLoading: isCheckInOut } = useMutation({
-    mutationFn: ({ id, status }) => updateStudent(id, { status: status }),
+    mutationFn: ({ id, status }) => updateStudentStatus(id, { status: status }),
     onSuccess: (data) => {
       toast.success(`Student #${data.id} successfully edited`);
       queryClient.invalidateQueries({ queryKey: ['students'] });
