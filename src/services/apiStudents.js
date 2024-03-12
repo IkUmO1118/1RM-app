@@ -48,7 +48,7 @@ export async function updateStudentStatus(id, obj) {
 export async function updateStudentData({ id, studentName, contract }) {
   let updateData;
   if (studentName) updateData = { fullName: studentName };
-  if (contract) updateData = { contract };
+  if (contract) updateData = contract;
 
   const { data, error } = await supabase
     .from('students')

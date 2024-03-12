@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import InputDate from '../../ui/InputDate';
 import InputNumber from '../../ui/InputNumber';
+import { useUpdateStudent } from '../students/useUpdateStudent';
+import { toDate } from 'date-fns';
 
 function UpdateStudentContractForm({
   id,
@@ -9,11 +11,25 @@ function UpdateStudentContractForm({
   contractPeriod,
   status,
 }) {
+  const { updateStudent, isUpdating } = useUpdateStudent();
+
   const [startDate, setStartDate] = useState(start);
   const [endDate, setEndDate] = useState(end);
   const [period, setPeriod] = useState(contractPeriod);
 
-  function handleClick() {}
+  function handleClick(e) {
+    e.preventDefault();
+    if (!startDate || !endDate || !period) return;
+    let contract = {
+      startDate: toDate(startDate),
+      endDate: toDate(endDate),
+      contractPeriod: period,
+    };
+    updateStudent({
+      contract,
+      id,
+    });
+  }
 
   return (
     <div className="rounded-md border border-gray-100 bg-gray-100 px-10 py-10">
@@ -24,10 +40,12 @@ function UpdateStudentContractForm({
               Start date
             </label>
             <InputDate
-              id="startDate"
+              inputId="startDate"
               state={startDate}
               setState={setStartDate}
               disabled={status === 'checked-in' && true}
+              changeSetState={setEndDate}
+              contractPeriod={period}
             />
           </div>
 
@@ -38,7 +56,7 @@ function UpdateStudentContractForm({
               End date
             </label>
             <InputDate
-              id="endDate"
+              inputId="endDate"
               state={endDate}
               setState={setEndDate}
               disabled={true}
@@ -54,16 +72,17 @@ function UpdateStudentContractForm({
           </label>
           <div className="ml-12">
             <InputNumber
-              id="contractPeriod"
+              inputId="contractPeriod"
               state={period}
               setState={setPeriod}
-              chengedSetState={setEndDate}
+              changeSetState={setEndDate}
             />
           </div>
         </div>
       </div>
       <button
         onClick={handleClick}
+        disabled={isUpdating}
         className="mt-8 rounded-md bg-emerald-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-600"
       >
         Update contract

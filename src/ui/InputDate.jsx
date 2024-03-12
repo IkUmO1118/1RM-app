@@ -1,10 +1,18 @@
-import { addDays, format } from 'date-fns';
+import { addDays, addMonths, format, toDate } from 'date-fns';
 import { Datepicker } from 'flowbite-react';
 import { customTheme } from '../utils/helpers';
 
-function InputDate({ state, setState, disabled = false, id }) {
+function InputDate({
+  state,
+  setState,
+  disabled = false,
+  inputId,
+  changeSetState,
+  contractPeriod = 1,
+}) {
   function handleChange(date) {
     setState(format(date, 'y-MM-dd'));
+    changeSetState(format(addMonths(toDate(date), contractPeriod), 'y-MM-dd'));
   }
 
   return (
@@ -24,7 +32,7 @@ function InputDate({ state, setState, disabled = false, id }) {
       // maxDate={addDays(new Date(), 365)}
       value={state}
       inputtype="datepicker"
-      id={id}
+      id={inputId}
     />
   );
 }

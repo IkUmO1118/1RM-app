@@ -10,16 +10,7 @@ function SessionsSetting() {
   const queryClient = useQueryClient();
   const { fullName, email, startDate, endDate, contractPeriod, status } =
     queryClient.getQueryData(['student', `${studentId}`]);
-  // const [startDate, setStartDate] = useState(new Date());
-  // const [endDate, setEndDate] = useState(new Date());
 
-  // function handleStartDate(date) {
-  //   setStartDate(date);
-  // }
-  // function handleEndDate(date) {
-  //   setEndDate(date);
-  // }
-  // <InputDate state={startDate} handleFn={handleStartDate} disabled={true} />
   return (
     <div className="flex flex-col gap-16 divide-y divide-gray-300 px-4">
       <div>

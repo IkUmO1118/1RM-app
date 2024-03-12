@@ -3,6 +3,7 @@ function Select({ options, value, onChange, type, ...props }) {
     <select
       value={value}
       onChange={onChange}
+      id="sortBy"
       className={`rounded-md border border-gray-100 px-6 py-3 text-xl ${
         type === 'white' ? 'bg-gray-0' : 'bg-white'
       } font-medium shadow-sm`}
