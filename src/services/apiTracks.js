@@ -1,10 +1,10 @@
 import supabase from './supabase';
 
-export async function getTrack(trackArr) {
+export async function getSelectedTracks(tracksArr) {
   const { data, error } = await supabase
     .from('tracks')
     .select('*')
-    .in('id', trackArr);
+    .in('id', tracksArr);
 
   if (error) {
     console.error(error);

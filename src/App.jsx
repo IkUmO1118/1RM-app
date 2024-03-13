@@ -14,7 +14,7 @@ import AppLayout from './ui/AppLayout';
 import Workouts from './pages/Workouts';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
-import Tracks from './pages/Tracks';
+import Sessions from './pages/Sessions';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -60,7 +60,7 @@ function App() {
               <Route path="students/:studentId" element={<Student />} />
               <Route
                 path="students/:studentId/part/:partId"
-                element={<Tracks />}
+                element={<Sessions />}
               />
               <Route path="Users" element={<Users />} />
               <Route path="workouts" element={<Workouts />} />
@@ -71,6 +71,7 @@ function App() {
             <Route path="*" element={<PageNotFonnd />} />
           </Routes>
         </BrowserRouter>
+
         <Toaster
           position="top-center"
           gutter={12}

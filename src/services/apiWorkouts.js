@@ -11,6 +11,20 @@ export async function getWorkouts() {
   return data;
 }
 
+export async function getSelectedWorkouts(workoutsArr) {
+  const { data, error } = await supabase
+    .from('workouts')
+    .select('*')
+    .in('id', workoutsArr);
+
+  if (error) {
+    console.error(error);
+    throw new Error('workouts not found');
+  }
+
+  return data;
+}
+
 export async function createWorkouts(newWorkout) {
   const { data, error } = await supabase
     .from('workouts')

@@ -2,19 +2,8 @@ import { Tooltip } from 'recharts';
 import WorkoutChart from '../dashboard/WorkoutChart';
 import { useParams } from 'react-router-dom';
 import { useMoveBack } from '../../hooks/useMoveBack';
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip bg-white p-3">
-        <p className="label text-base font-medium">{label}</p>
-        <p className="intro text-sm font-medium">{`Vol : ${payload[0].value}`}</p>
-      </div>
-    );
-  }
-
-  return null;
-};
+import CustomTooltip from '../../ui/CustomTooltip';
+import { useQueryClient } from '@tanstack/react-query';
 
 const data = [
   {
@@ -71,10 +60,13 @@ const data = [
   },
 ];
 
-function TrackDetail() {
-  // /////////////////////////////
-  const moveBack = useMoveBack();
+function SessionsDetail() {
   const { partId } = useParams();
+  const queryClient = useQueryClient();
+  const sessionPart = queryClient.getQueryData(['session', `${partId}`]);
+  const moveBack = useMoveBack();
+
+  console.log(sessionPart);
 
   return (
     <div className="flex flex-col gap-14">
@@ -98,4 +90,4 @@ function TrackDetail() {
   );
 }
 
-export default TrackDetail;
+export default SessionsDetail;

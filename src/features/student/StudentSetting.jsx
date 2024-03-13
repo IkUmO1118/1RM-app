@@ -1,8 +1,8 @@
-import UpdateStudentDataForm from '../student/UpdateStudentDataForm';
+import UpdateStudentDataForm from './UpdateStudentDataForm';
 import { useParams } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
-import UpdateStudentContractForm from '../student/UpdateStudentContractForm';
-import DeleteStudentForm from '../student/DeleteStudentForm';
+import UpdateStudentContractForm from './UpdateStudentContractForm';
+import DeleteStudentForm from './DeleteStudentForm';
 import { addMonths, format } from 'date-fns';
 
 function SessionsSetting() {

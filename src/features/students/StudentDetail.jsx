@@ -2,7 +2,7 @@ import Spinner from '../../ui/Spinner';
 import Empty from '../../ui/Empty';
 import { useStudent } from './useStudent';
 import { useMoveBack } from '../../hooks/useMoveBack';
-import StudentTab from './StudentTab';
+import StudentTab from '../student/StudentTab';
 
 function StudentDetail() {
   const moveBack = useMoveBack();

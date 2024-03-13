@@ -1,5 +1,5 @@
 import Empty from '../../ui/Empty';
-import SessionsCard from './SessionsCard';
+import SessionsCard from '../sessions/SessionsCard';
 
 function SessionsTrack({ students_session }) {
   // students_session cacheの取得
