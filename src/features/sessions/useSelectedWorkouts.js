@@ -1,15 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { getSelectedWorkouts } from '../../services/apiWorkouts';
-import { useParams } from 'react-router';
 
-export function useSelectedWorkouts(idArr) {
-  const { partId } = useParams();
+export function useSelectedWorkouts(idArr, date) {
   const {
     data: selectedWorkouts,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['workout', partId],
+    queryKey: ['workout', date],
     queryFn: () => getSelectedWorkouts(idArr),
   });
 

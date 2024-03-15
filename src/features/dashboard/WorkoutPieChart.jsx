@@ -7,22 +7,71 @@ import {
   Tooltip,
 } from 'recharts';
 import Spinner from '../../ui/Spinner';
+import { getSelectedWorkouts } from '../../services/apiWorkouts';
+import { useEffect, useState } from 'react';
 
-const data = [
-  { workoutName: 'dumbbell press 15°', value: 4, color: '#f97316' },
-  { workoutName: 'pec fly', value: 3, color: '#eab308' },
-  { workoutName: 'incline chest press', value: 6, color: '#84cc16' },
-  { workoutName: 'decline smith press', value: 4, color: '#22c55e' },
-  // { workoutName: '8-14 nights', value: 3, color: '#14b8a6' },
-  // { workoutName: '15-21 nights', value: 1, color: '#3b82f6' },
-];
+async function prepareData(sessions) {
+  const workoutIdHash = {};
+  const colors = [
+    '#f97316',
+    '#eab308',
+    '#84cc16',
+    '#22c55e',
+    '#14b8a6',
+    '#3b82f6',
+  ]; // 異なる色の配列
 
-function prepareData(sessions) {}
+  sessions.reduce((acc, session) => {
+    for (let i = 1; i <= 4; i++) {
+      const workoutId = session[`workout_${i}Id`];
+      if (workoutId !== null) {
+        if (workoutIdHash[workoutId]) {
+          workoutIdHash[workoutId]++;
+        } else {
+          workoutIdHash[workoutId] = 1;
+        }
+      }
+    }
+    return acc;
+  }, []);
+
+  const workoutArr = await getSelectedWorkouts(Object.keys(workoutIdHash));
+
+  const workoutNameHash = {};
+  workoutArr.forEach((workout) => {
+    workoutNameHash[workout.id] = workout.workoutName;
+  });
+
+  const generatedTestdata = Object.entries(workoutIdHash).map(
+    ([workoutId, count], index) => {
+      return {
+        workoutName: workoutNameHash[workoutId],
+        value: count,
+        color: colors[index],
+      };
+    },
+  );
+
+  return generatedTestdata;
+}
 
 function WorkoutPieChart({ sessions, isLoading, height }) {
-  if (isLoading) return <Spinner />;
+  const [data, setData] = useState([]);
 
-  // const data = prepareData(sessions);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!isLoading) {
+        const preparedData = await prepareData(
+          sessions.map((session) => session.session),
+        );
+        setData(preparedData);
+      }
+    };
+
+    fetchData();
+  }, [sessions, isLoading]);
+
+  if (isLoading) return <Spinner />;
 
   return (
     <ResponsiveContainer width="100%" height={height}>

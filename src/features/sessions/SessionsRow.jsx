@@ -14,7 +14,10 @@ function SessionsRow({ session }) {
   if (workout_3Id !== null) workoutsArr.push(workout_3Id);
   if (workout_4Id !== null) workoutsArr.push(workout_4Id);
 
-  const { selectedWorkouts, isLoading } = useSelectedWorkouts(workoutsArr);
+  const { selectedWorkouts, isLoading } = useSelectedWorkouts(
+    workoutsArr,
+    date,
+  );
 
   if (isLoading)
     return (
@@ -32,7 +35,7 @@ function SessionsRow({ session }) {
       </div>
       {selectedWorkouts.map((workout, i) => (
         <div
-          className=" font-sono flex self-center px-3 text-lg font-medium"
+          className=" font-sono flex self-center border-l border-gray-300 px-3 text-lg font-medium"
           key={workout.id}
         >
           {selectedWorkouts[i].workoutName}
