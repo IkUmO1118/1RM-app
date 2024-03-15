@@ -27,7 +27,7 @@ async function fetchPartSessionData(sessions) {
 }
 
 // part別のsessionが[{session1}, ...{sessionN}]となって以下の関数に入る
-export function usePartSessionVolume(sessions) {
+export function usePartSession(sessions) {
   return useQuery({
     queryKey: ['session', sessions[0].workoutMenu],
     queryFn: () => fetchPartSessionData(sessions),

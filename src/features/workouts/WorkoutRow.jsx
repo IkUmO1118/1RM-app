@@ -3,14 +3,7 @@ import Table from '../../ui/Table';
 
 function WorkoutRow({ workout }) {
   const { workoutName, image, awareness, part, equipment } = workout;
-  // const colorOfPart = {
-  //   chest: 'bg-green-200',
-  //   back: 'bg-sky-200',
-  //   shoulder: 'bg-red-200',
-  //   arms: 'bg-yellow-200',
-  //   legs: 'bg-orange-200',
-  //   abs: 'bg-blue-200',
-  // };
+
   return (
     <Table.Row>
       <img

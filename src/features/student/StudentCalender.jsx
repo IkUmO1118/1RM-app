@@ -1,15 +1,7 @@
 import { format } from 'date-fns';
 import BasicDateCalendar from '../../ui/BasicDateCalender';
 import { HiOutlinePlusSm } from 'react-icons/hi';
-
-const eventOfPart = {
-  chest: { backgroundColor: '#d1fae5', textColor: '#047857' }, //Emerald-100-700
-  back: { backgroundColor: '#fee2e2', textColor: '#b91c1c' }, //Red-100-700
-  shoulder: { backgroundColor: '#dbeafe', textColor: '#1d4ed8' }, //Blue-100-700
-  arms: { backgroundColor: '#fae8ff', textColor: '#a21caf' }, //Fuchsia-100-700
-  legs: { backgroundColor: '#ede9fe', textColor: '#6d28d9' }, //Violet-100-700
-  abs: { backgroundColor: '#fef3c7', textColor: '#b45309' }, //Amber-100-700
-};
+import { eventOfPart } from '../../utils/helpers';
 
 function StudentCalender({ students_session }) {
   const workoutsArray = students_session?.map((workout) => ({

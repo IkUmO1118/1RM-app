@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from '../../ui/Spinner';
-import WorkoutChart from '../dashboard/WorkoutChart';
-import { usePartSessionVolume } from './usePartSessionVolume';
+import WorkoutAreaChart from '../dashboard/WorkoutAreaChart';
+import { usePartSession } from './usePartSession';
 import { HiOutlineArrowUpRight } from 'react-icons/hi2';
 
 // sessionsは[[session1], [session2], ...[sessionN]]
@@ -11,7 +11,7 @@ function SessionsCard({ sessions, part }) {
   const { studentId } = useParams();
 
   // 部位別の[{〇日, volume:〇}, ... ,{〇日, volume:〇}]をreact queryに追加すると共に、取得する
-  const { data: trackData, isLoading } = usePartSessionVolume(sessions);
+  const { data: trackData, isLoading } = usePartSession(sessions);
   // trackData = [{date: 〇/〇, volume: 0000}, ... {date: 〇/〇, volume: 0000}]
 
   if (isLoading) return <Spinner />;
@@ -30,7 +30,7 @@ function SessionsCard({ sessions, part }) {
         </button>
       </div>
 
-      <WorkoutChart data={trackData} part={part} height={200} />
+      <WorkoutAreaChart data={trackData} part={part} height={200} />
     </div>
   );
 }

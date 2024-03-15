@@ -7,15 +7,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
-
-const colors = {
-  chest: { stroke: '#047857', fill: '#d1fae5' },
-  shoulder: { stroke: '#b91c1c', fill: '#fee2e2' },
-  back: { stroke: '#1d4ed8', fill: '#dbeafe' },
-  legs: { stroke: '#a21caf', fill: '#fae8ff' },
-  arms: { stroke: '#6d28d9', fill: '#ede9fe' },
-  abs: { stroke: '#b45309', fill: '#fef3c7' },
-};
+import { eventOfPart } from '../../utils/helpers';
 
 // const CustomTooltip = ({ active, payload, label }) => {
 //   if (active && payload && payload.length) {
@@ -30,7 +22,7 @@ const colors = {
 //   return null;
 // };
 
-function WorkoutChart({ height, data, part, xaxis = '', children }) {
+function WorkoutAreaChart({ height, data, part, xaxis = '', children }) {
   const sortedDataByDate = data.sort((a, b) => toDate(a.date) - toDate(b.date));
 
   return (
@@ -52,8 +44,8 @@ function WorkoutChart({ height, data, part, xaxis = '', children }) {
           <Area
             type="monotone"
             dataKey="volume"
-            stroke={colors[part].stroke}
-            fill={colors[part].fill}
+            stroke={eventOfPart[part].textColor}
+            fill={eventOfPart[part].backgroundColor}
             unit="Vol"
             name="Exercise Volume"
           />
@@ -63,4 +55,4 @@ function WorkoutChart({ height, data, part, xaxis = '', children }) {
   );
 }
 
-export default WorkoutChart;
+export default WorkoutAreaChart;

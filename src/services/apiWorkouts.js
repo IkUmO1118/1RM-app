@@ -11,11 +11,11 @@ export async function getWorkouts() {
   return data;
 }
 
-export async function getSelectedWorkouts(workoutsArr) {
+export async function getSelectedWorkouts(idArr) {
   const { data, error } = await supabase
     .from('workouts')
     .select('*')
-    .in('id', workoutsArr);
+    .in('id', idArr);
 
   if (error) {
     console.error(error);

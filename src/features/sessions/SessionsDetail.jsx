@@ -1,72 +1,35 @@
 import { Tooltip } from 'recharts';
-import WorkoutChart from '../dashboard/WorkoutChart';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { useMoveBack } from '../../hooks/useMoveBack';
+import Spinner from '../../ui/Spinner';
 import CustomTooltip from '../../ui/CustomTooltip';
-import { useQueryClient } from '@tanstack/react-query';
+import { usePartSession } from './usePartSession';
+import WorkoutAreaChart from '../dashboard/WorkoutAreaChart';
+import SessionsTable from './SessionsTable';
+import WorkoutPieChart from '../dashboard/WorkoutPieChart';
 
-const data = [
-  {
-    date: '01/01',
-    volume: 6000,
-  },
-  {
-    date: '01/02',
-    volume: 7000,
-  },
-  {
-    date: '01/03',
-    volume: 8000,
-  },
-  {
-    date: '01/04',
-    volume: 7500,
-  },
-  {
-    date: '01/05',
-    volume: 8100,
-  },
-  {
-    date: '01/06',
-    volume: 8300,
-  },
-  {
-    date: '01/07',
-    volume: 8700,
-  },
-  {
-    date: '01/08',
-    volume: 9000,
-  },
-  {
-    date: '01/09',
-    volume: 8800,
-  },
-  {
-    date: '01/10',
-    volume: 8700,
-  },
-  {
-    date: '01/11',
-    volume: 8900,
-  },
-  {
-    date: '01/12',
-    volume: 9100,
-  },
-  {
-    date: '01/13',
-    volume: 9500,
-  },
-];
-
-function SessionsDetail() {
+function SessionsDetail({ students_session }) {
   const { partId } = useParams();
-  const queryClient = useQueryClient();
-  const sessionPart = queryClient.getQueryData(['session', `${partId}`]);
   const moveBack = useMoveBack();
 
-  console.log(sessionPart);
+  // ページにあるpartIdをfilterしたsessionの配列を作成する
+  let filteredSessions = [];
+  students_session.forEach((session) => {
+    switch (session.session.workoutMenu) {
+      case partId:
+        filteredSessions.push(session.session);
+        break;
+      default:
+        break;
+    }
+  });
+
+  // session配列からtrackデータなどをfetchする
+  const { data: sessions, isLoading } = usePartSession(filteredSessions);
+  if (isLoading) return <Spinner />;
+
+  // query からcacheを得る方法だと、リロードした時にcacheが消滅しもう一度queryを取得しに行かなければいけない
+  // つまり、同じページの親要素ではdatabaseから取得し、同じurl内ではreact queryを使用しpropの回数をできるだけ減らす
 
   return (
     <div className="flex flex-col gap-14">
@@ -81,10 +44,39 @@ function SessionsDetail() {
       </div>
 
       <div className="flex flex-col gap-9 rounded-xl bg-white py-10">
-        <h1 className="ml-8 text-4xl font-semibold">Transition volume</h1>
-        <WorkoutChart data={data} part={partId} xaxis={'date'} height={400}>
+        <h1 className="ml-8 text-4xl font-semibold">
+          Trends in Training Volume
+        </h1>
+        <WorkoutAreaChart
+          data={sessions}
+          part={partId}
+          xaxis={'date'}
+          height={350}
+        >
           <Tooltip content={<CustomTooltip />} />
-        </WorkoutChart>
+        </WorkoutAreaChart>
+      </div>
+
+      <div className="flex max-h-[410px] items-start gap-8">
+        <div className="flex flex-grow flex-col gap-8 rounded-xl bg-white p-8">
+          <h1 className="text-4xl font-semibold">Training menu table</h1>
+          <SessionsTable sessions={sessions} isLoading={isLoading} />
+        </div>
+
+        <div className="flex w-[320px] flex-col rounded-xl bg-white pb-10">
+          <h1 className="ml-8 mt-8 text-4xl font-semibold">
+            Training menu summary
+          </h1>
+          <WorkoutPieChart
+            sessions={sessions}
+            isLoading={isLoading}
+            height={340}
+          />
+        </div>
+      </div>
+
+      <div className="bg-red-600">
+        <p>1RMの計測</p>
       </div>
     </div>
   );
