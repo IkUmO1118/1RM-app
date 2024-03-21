@@ -4,7 +4,7 @@ function DeleteStudentForm({ id }) {
   const { isDeleting, deleteStudent } = useDeleteStudent();
 
   return (
-    <div className="flex flex-col gap-8 divide-y divide-gray-300 rounded-md border border-gray-100 bg-gray-100 px-10 py-10">
+    <div className="flex flex-col gap-8 divide-y divide-gray-300 rounded-md border border-gray-100 bg-white px-10 py-10">
       <p className="text-lg">
         Once a student is deleted, it cannot be restored,
         <span className="font-semibold"> you will lose students data</span>

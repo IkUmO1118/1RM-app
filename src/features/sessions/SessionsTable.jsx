@@ -14,10 +14,10 @@ function SessionsTable({ sessions, isLoading }) {
     <Table columns="grid-cols-[0.6fr_1fr_1fr_1fr_1fr]">
       <Table.Header>
         <div></div>
-        <div>1種目</div>
-        <div>2種目</div>
-        <div>3種目</div>
-        <div>4種目</div>
+        <div className="justify-self-center">- 1 -</div>
+        <div className="justify-self-center">- 2 -</div>
+        <div className="justify-self-center">- 3 -</div>
+        <div className="justify-self-center">- 4 -</div>
       </Table.Header>
 
       <Table.Body

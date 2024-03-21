@@ -75,3 +75,18 @@ export async function deleteStudent(id) {
 
   return data;
 }
+
+export async function createStudent(obj) {
+  const { data, error } = await supabase
+    .from('students')
+    .insert(obj)
+    .select()
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error('Student could not be created');
+  }
+
+  return data;
+}

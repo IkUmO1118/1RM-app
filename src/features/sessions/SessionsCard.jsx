@@ -30,7 +30,13 @@ function SessionsCard({ sessions, part }) {
         </button>
       </div>
 
-      <WorkoutAreaChart data={trackData} part={part} height={200} />
+      <WorkoutAreaChart
+        data={trackData}
+        part={part}
+        height={200}
+        fontSize={11}
+        fontWeight={500}
+      />
     </div>
   );
 }

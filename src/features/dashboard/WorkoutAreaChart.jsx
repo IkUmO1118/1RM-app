@@ -22,7 +22,15 @@ import { eventOfPart } from '../../utils/helpers';
 //   return null;
 // };
 
-function WorkoutAreaChart({ height, data, part, xaxis = '', children }) {
+function WorkoutAreaChart({
+  height,
+  data,
+  part,
+  xaxis = '',
+  children,
+  fontSize,
+  fontWeight,
+}) {
   const sortedDataByDate = data.sort((a, b) => toDate(a.date) - toDate(b.date));
 
   return (
@@ -39,7 +47,7 @@ function WorkoutAreaChart({ height, data, part, xaxis = '', children }) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey={xaxis} />
-          <YAxis />
+          <YAxis fontSize={fontSize} fontWeight={fontWeight} />
           {children}
           <Area
             type="monotone"

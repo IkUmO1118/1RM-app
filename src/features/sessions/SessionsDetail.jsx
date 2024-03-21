@@ -43,15 +43,15 @@ function SessionsDetail({ students_session }) {
         </button>
       </div>
 
-      <div className="flex flex-col gap-9 rounded-xl bg-white py-10">
-        <h1 className="ml-8 text-4xl font-semibold">
-          Trends in Training Volume
-        </h1>
+      <div className="flex flex-col gap-9 rounded-xl bg-white p-10">
+        <h1 className="text-4xl font-semibold">Trends in Training Volume</h1>
         <WorkoutAreaChart
           data={sessions}
           part={partId}
           xaxis={'date'}
           height={350}
+          fontSize={14}
+          fontWeight={500}
         >
           <Tooltip content={<CustomTooltip />} />
         </WorkoutAreaChart>
