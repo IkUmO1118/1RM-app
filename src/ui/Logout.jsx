@@ -2,6 +2,7 @@ import { HiArrowRightOnRectangle } from 'react-icons/hi2';
 import { useLogout } from '../features/authentication/useLogout';
 import SpinnerMini from './SpinnerMini';
 
+// useLogoutのisLoadingが作動しない
 function Logout() {
   const { logout, isLoading } = useLogout();
   return (
