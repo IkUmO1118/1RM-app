@@ -1,8 +1,10 @@
-# React + Vite
+# 1RM.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+足りない部分
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 日付が変わると、studnetsのstatusまわりをupdateする(何も行っていない)
+- training menuなどにworkoutをまとめ、workoutMenuを用いて記録などを行う
+- dashboardにて、session内にてworkoutの種目数を個々で変更することができる(今現在は４種目と固定されている)
+- new workoutの作成
+- workout tableの修正(今現在は仮)
+- 全てのdeleteに対して、許可モーダルの作成
