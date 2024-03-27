@@ -8,7 +8,7 @@ export function useCheckInOutStudent() {
   const { mutate: checkInOut, isLoading: isCheckInOut } = useMutation({
     mutationFn: ({ id, status }) => updateStudentStatus(id, { status: status }),
     onSuccess: (data) => {
-      toast.success(`Student #${data.id} successfully edited`);
+      toast.success(`Student #${data.id} successfully check-in-out.`);
       queryClient.invalidateQueries({ queryKey: ['students'] });
     },
     onError: () => toast.error('There was an error while checking in or out'),

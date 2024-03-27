@@ -1,3 +1,5 @@
+import ConfirmDelete from '../../ui/ConfirmDelete';
+import Modal from '../../ui/Modal';
 import { useDeleteStudent } from './useDeleteStudent';
 
 function DeleteStudentForm({ id }) {
@@ -10,13 +12,20 @@ function DeleteStudentForm({ id }) {
         <span className="font-semibold"> you will lose students data</span>
       </p>
       <div>
-        <button
-          className="mt-9 rounded-md bg-red-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-red-600"
-          onClick={() => deleteStudent(id)}
-          disabled={isDeleting}
-        >
-          Delete the student
-        </button>
+        <Modal>
+          <Modal.Open opens="delete">
+            <button className="mt-9 rounded-md bg-red-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-red-800">
+              Delete the student
+            </button>
+          </Modal.Open>
+          <Modal.Window name="delete">
+            <ConfirmDelete
+              resourceName="student"
+              disabled={isDeleting}
+              onConfirm={() => deleteStudent(id)}
+            />
+          </Modal.Window>
+        </Modal>
       </div>
     </div>
   );

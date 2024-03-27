@@ -11,9 +11,13 @@ import Table from '../../ui/Table';
 import { HiOutlineTrash } from 'react-icons/hi2';
 import { HiOutlineArrowsExpand } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../../ui/Modal';
+import ConfirmDelete from '../../ui/ConfirmDelete';
+import { useDeleteStudent } from '../student/useDeleteStudent';
 
 function StudentRow({ student }) {
   const navigate = useNavigate();
+  const { isDeleting, deleteStudent } = useDeleteStudent();
   const {
     id: studentId,
     fullName,
@@ -76,12 +80,28 @@ function StudentRow({ student }) {
         onClick={() => navigate(`/students/${studentId}`)}
       >
         <HiOutlineArrowsExpand
-          className={`flex h-11 w-11 self-center justify-self-center rounded-md px-2 py-2 transition-all duration-200 ${isCheckedIn ? 'hover:bg-gray-200' : ''}`}
+          className={`flex h-11 w-11 self-center justify-self-center rounded-md p-2 transition-all duration-200 ${isCheckedIn ? 'hover:bg-gray-200' : ''}`}
         />
       </button>
-      <button>
-        <HiOutlineTrash className="flex h-7 w-7 self-center justify-self-center text-red-700" />
-      </button>
+
+      <Modal>
+        <Modal.Open opens="delete">
+          <button className="flex self-center justify-self-center rounded-md p-2 hover:bg-gray-200">
+            <HiOutlineTrash className="h-8 w-8 text-red-700" />
+          </button>
+        </Modal.Open>
+        <Modal.Window name="delete">
+          <ConfirmDelete
+            resourceName="student"
+            disabled={isDeleting}
+            onConfirm={() =>
+              deleteStudent(studentId, {
+                onSettled: () => navigate(-1),
+              })
+            }
+          />
+        </Modal.Window>
+      </Modal>
     </Table.Row>
   );
 }
