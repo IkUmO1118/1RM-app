@@ -146,7 +146,16 @@ export const eventOfPart = {
   chest: { backgroundColor: '#d1fae5', textColor: '#047857' }, //Emerald-100-700
   back: { backgroundColor: '#fee2e2', textColor: '#b91c1c' }, //Red-100-700
   shoulder: { backgroundColor: '#dbeafe', textColor: '#1d4ed8' }, //Blue-100-700
-  arms: { backgroundColor: '#fef3c7', textColor: '#b45309' }, //Fuchsia-100-700
+  arms: { backgroundColor: '#fef3c7', textColor: '#b45309' }, //Amber-100-700
   legs: { backgroundColor: '#ede9fe', textColor: '#6d28d9' }, //Violet-100-700
-  abs: { backgroundColor: '#fae8ff', textColor: '#a21caf' }, //Amber-100-700
+  abs: { backgroundColor: '#fae8ff', textColor: '#a21caf' }, //Fuchsia-100-700
+};
+
+export const shadeOfPart = {
+  chest: { thick: 'emerald-700', thin: 'emerald-100' },
+  back: { thick: 'red-700', thin: 'red-100' },
+  shoulder: { thick: 'blue-700', thin: 'blue-100' },
+  arms: { thick: 'amber-700', thin: 'amber-100' },
+  legs: { thick: 'violet-700', thin: 'violet-100' },
+  abs: { thick: 'fuchsia-700', thin: 'fuchsia-100' },
 };
