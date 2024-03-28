@@ -6,13 +6,15 @@ function WorkoutsTable({ workouts, isLoading }) {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table columns="grid-cols-[0.6fr_1.4fr_1.1fr_0.6fr_2.0fr_0.3fr]">
+    <Table columns="grid-cols-[0.3fr_1.1fr_1.1fr_0.4fr_0.5fr_0.3fr]">
       <Table.Header>
         <div></div>
-        <div>種目名</div>
-        <div>使う設備</div>
-        <div>鍛える部位</div>
-        <div>注意ポイント</div>
+        <div className="flex items-center justify-self-center">種目名</div>
+        <div className="flex items-center justify-self-center">使う設備</div>
+        <div className="flex items-center justify-self-center">鍛える部位</div>
+        <div className="flex items-center justify-self-center">
+          注意ポイント
+        </div>
         <div></div>
       </Table.Header>
 
