@@ -26,6 +26,7 @@ function Toggle({ id }) {
 
   function handleClick(e) {
     e.stopPropagation();
+
     const rect = e.target.closest('button').getBoundingClientRect();
 
     setPosition({
@@ -37,7 +38,7 @@ function Toggle({ id }) {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleClick} className="translate-x-4">
       <HiEllipsisVertical className="h-12 w-12 p-1 hover:bg-gray-100" />
     </button>
   );
@@ -87,7 +88,6 @@ function Button({ children, icon, onClick }) {
   );
 }
 
-// Menus.Menu = Menu;
 Menus.Toggle = Toggle;
 Menus.List = List;
 Menus.Button = Button;

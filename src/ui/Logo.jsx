@@ -1,7 +1,9 @@
 function Logo() {
   return (
     <div className="self-center">
-      <img src="/logo-dark.png" alt="Logo" className="h-36 w-auto" />
+      <h1 className="text-7xl text-white">
+        1RM<span className="text-emerald-300">.</span>
+      </h1>
     </div>
   );
 }
