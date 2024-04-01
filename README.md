@@ -8,7 +8,7 @@
 
 - editWorkout, deleteWorkout, createWorkoutの作成
 - new workoutの作成
-- workout detailの作成
+- ~~workout detailの作成~~
 
 - Studentsのsortの実装
 - Studentのdeleteをactive = flaseにする
