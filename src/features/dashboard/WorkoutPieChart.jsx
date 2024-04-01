@@ -13,13 +13,14 @@ import { useEffect, useState } from 'react';
 async function prepareData(sessions) {
   const workoutIdHash = {};
   const colors = [
-    '#f97316',
-    '#eab308',
-    '#84cc16',
-    '#22c55e',
-    '#14b8a6',
-    '#3b82f6',
-  ]; // 異なる色の配列
+    '#f87171',
+    '#fbbf24',
+    '#a3e635',
+    '#34d399',
+    '#60a5fa',
+    '#a78bfa',
+    '#e879f9',
+  ];
 
   sessions.reduce((acc, session) => {
     for (let i = 1; i <= 4; i++) {
@@ -102,7 +103,9 @@ function WorkoutPieChart({ sessions, isLoading, height }) {
           layout="vertical"
           iconSize={15}
           iconType="circle"
-          // wrapperStyle={{ paddingBottom: 20 }}
+          wrapperStyle={{
+            fontSize: '1.2rem',
+          }}
         />
       </PieChart>
     </ResponsiveContainer>

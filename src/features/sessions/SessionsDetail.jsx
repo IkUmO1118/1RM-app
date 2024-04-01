@@ -43,7 +43,7 @@ function SessionsDetail({ students_session }) {
         </button>
       </div>
 
-      <div className="flex flex-col gap-9 rounded-xl bg-white p-10">
+      <div className="flex flex-col gap-9 rounded-xl border border-gray-200 bg-white p-10">
         <h1 className="text-4xl font-semibold">Trends in Training Volume</h1>
         <WorkoutAreaChart
           data={sessions}
@@ -58,12 +58,12 @@ function SessionsDetail({ students_session }) {
       </div>
 
       <div className="flex max-h-[410px] items-start gap-8">
-        <div className="flex flex-grow flex-col gap-8 rounded-xl bg-white p-8">
+        <div className="flex flex-grow flex-col gap-8 rounded-xl border border-gray-200 bg-white p-8">
           <h1 className="text-4xl font-semibold">Training menu table</h1>
           <SessionsTable sessions={sessions} isLoading={isLoading} />
         </div>
 
-        <div className="flex w-[320px] flex-col rounded-xl bg-white pb-10">
+        <div className="flex w-[320px] flex-col rounded-xl border border-gray-200 bg-white pb-10">
           <h1 className="ml-8 mt-8 text-4xl font-semibold">
             Training menu summary
           </h1>
@@ -75,9 +75,9 @@ function SessionsDetail({ students_session }) {
         </div>
       </div>
 
-      <div className="bg-red-600">
+      {/* <div className="bg-red-600">
         <p>1RMの計測</p>
-      </div>
+      </div> */}
     </div>
   );
 }

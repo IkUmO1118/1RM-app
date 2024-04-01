@@ -48,10 +48,9 @@ function App() {
     palette: {
       mode: 'light',
       primary: {
-        // main: '#022c22', // emerald-950
-        main: '#059669', // emerald-600
+        main: '#047857', // emerald-700
         light: '#34d399', //emerald-400
-        dark: '#065f46', // emerald-800
+        dark: '#064e3b', // emerald-900
       },
     },
     typography: {

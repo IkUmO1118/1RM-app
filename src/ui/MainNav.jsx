@@ -12,7 +12,7 @@ function MainNav() {
         <li>
           <NavLink
             to="/dashboard"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-gray-500 transition-all duration-300 hover:bg-gray-100 hover:text-gray-600 [&.active]:bg-emerald-50 [&.active]:text-emerald-700"
           >
             <HomeOutlinedIcon
               edge="start"
@@ -20,9 +20,6 @@ function MainNav() {
               sx={{
                 width: '2.2rem',
                 height: '2.2rem',
-                '.active &': {
-                  color: 'green[50]',
-                },
               }}
             />
             <span>Home</span>
@@ -31,7 +28,7 @@ function MainNav() {
         <li>
           <NavLink
             to="/students"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-gray-500 transition-all duration-300 hover:bg-gray-100 hover:text-gray-600 [&.active]:bg-emerald-50 [&.active]:text-emerald-700"
           >
             <PeopleAltOutlinedIcon
               edge="start"
@@ -39,9 +36,6 @@ function MainNav() {
               sx={{
                 width: '2.2rem',
                 height: '2.2rem',
-                '.active &': {
-                  color: 'green[50]',
-                },
               }}
             />
             <span>Students</span>
@@ -50,7 +44,7 @@ function MainNav() {
         <li>
           <NavLink
             to="/workouts"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-gray-500 transition-all duration-300 hover:bg-gray-100 hover:text-gray-600 [&.active]:bg-emerald-50 [&.active]:text-emerald-700"
           >
             <AssignmentOutlinedIcon
               edge="start"
@@ -58,9 +52,6 @@ function MainNav() {
               sx={{
                 width: '2.2rem',
                 height: '2.2rem',
-                '.active &': {
-                  color: 'green[50]',
-                },
               }}
             />
 
@@ -70,7 +61,7 @@ function MainNav() {
         <li>
           <NavLink
             to="/users"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-gray-500 transition-all duration-300 hover:bg-gray-100 hover:text-gray-600 [&.active]:bg-emerald-50 [&.active]:text-emerald-700"
           >
             <PersonAddAltOutlinedIcon
               edge="start"
@@ -78,9 +69,6 @@ function MainNav() {
               sx={{
                 width: '2.2rem',
                 height: '2.2rem',
-                '.active &': {
-                  color: 'green[50]',
-                },
               }}
             />
             <span>Users</span>
@@ -89,7 +77,7 @@ function MainNav() {
         <li>
           <NavLink
             to="/settings"
-            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-zinc-400 transition-all duration-300 hover:bg-emerald-900 active:text-emerald-50 [&.active]:bg-emerald-900 [&.active]:text-emerald-50"
+            className="flex items-center gap-5 rounded-md px-10 py-5 text-xl font-semibold text-gray-500 transition-all duration-300 hover:bg-gray-100 hover:text-gray-600 [&.active]:bg-emerald-50 [&.active]:text-emerald-700"
           >
             <SettingsOutlinedIcon
               edge="start"
@@ -97,9 +85,6 @@ function MainNav() {
               sx={{
                 width: '2.2rem',
                 height: '2.2rem',
-                '.active &': {
-                  color: 'green[50]',
-                },
               }}
             />
             <span>Settings</span>

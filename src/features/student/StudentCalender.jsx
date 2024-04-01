@@ -13,7 +13,7 @@ function StudentCalender({ students_session }) {
   return (
     <div className="relative">
       <BasicDateCalendar array={workoutsArray} />
-      <button className="absolute right-0 top-0 flex items-center gap-2 rounded-full bg-emerald-800 px-5 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-700">
+      <button className="absolute right-0 top-0 flex items-center gap-2 rounded-full bg-emerald-700 px-5 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-800">
         <HiOutlinePlusSm className="h-7 w-7" />
         <span>Create workout</span>
       </button>

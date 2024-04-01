@@ -50,7 +50,7 @@ function UpdateStudentDataForm({ fullName, email, id }) {
       </div>
       <button
         disabled={isUpdating}
-        className="mt-8 rounded-md bg-emerald-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-600"
+        className="mt-8 rounded-md bg-emerald-700 px-4 py-4 text-xl text-white transition-all duration-200 hover:bg-emerald-800"
       >
         Update student
       </button>

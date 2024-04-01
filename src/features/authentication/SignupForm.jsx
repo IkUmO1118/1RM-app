@@ -129,7 +129,7 @@ function SignupForm() {
       <div className="grid grid-cols-[24rem_1fr_1.2fr] gap-9">
         <div className="col-span-1 col-end-7 flex gap-3">
           <button
-            className="mt-8 rounded-md border-2 border-gray-200 px-6 py-4 text-2xl text-gray-600 transition-all duration-200"
+            className="mt-8 rounded-md border-2 border-gray-200 px-6 py-4 text-2xl text-gray-600 transition-all duration-200 hover:bg-gray-50"
             type="reset"
             disabled={isCreating}
             onClick={reset}
@@ -137,7 +137,7 @@ function SignupForm() {
             cancel
           </button>
           <button
-            className="mt-8 rounded-md bg-emerald-700 px-6 py-4 text-2xl text-white transition-all duration-200 hover:bg-emerald-600"
+            className="mt-8 rounded-md bg-emerald-700 px-6 py-4 text-2xl text-white transition-all duration-200 hover:bg-emerald-800"
             disabled={isCreating}
           >
             Create a user

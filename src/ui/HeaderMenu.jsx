@@ -8,10 +8,10 @@ function HeaderMenu() {
     <ul className="flex gap-2">
       <li>
         <button
-          className="rounded-md p-3 text-emerald-700 transition-all duration-200 hover:bg-gray-100"
+          className="rounded-md p-3 text-gray-800 transition-all duration-200 hover:bg-gray-100 hover:text-gray-950"
           onClick={() => navigate('/account')}
         >
-          <HiOutlineUser className="h-9 w-9" />
+          <HiOutlineUser className="h-8 w-8" />
         </button>
       </li>
       <li>
