@@ -13,7 +13,7 @@ function WorkoutDetail({ workout, onCloseModal }) {
       className="flex flex-col gap-14 p-8"
       style={{ height: detailHeight, width: detailWidth }}
     >
-      <div className="flex gap-10">
+      <div className="mt-10 flex gap-16">
         <h1 className="self-center text-4xl font-semibold">{workoutName}</h1>
         <div
           className={`my-4 flex self-center justify-self-center rounded-lg  bg-${shadeOfPart[part].thin} px-4 py-1 text-xl font-medium text-${shadeOfPart[part].thick}`}
@@ -21,7 +21,7 @@ function WorkoutDetail({ workout, onCloseModal }) {
           {part}
         </div>
       </div>
-      <div className="mx-auto flex flex-col gap-2">
+      <div className="mx-auto mt-6 flex flex-col gap-2">
         <img
           src={image}
           alt="workout-equipment"
