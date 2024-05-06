@@ -10,7 +10,7 @@
 - new workoutの作成
 - ~~workout detailの作成~~
 
-- Studentsのsortの実装
+- ~~Studentsのsortの実装~~
 - Studentのdeleteをactive = flaseにする
 
 - ~~workout tableの修正(今現在は仮)~~
