@@ -2,6 +2,7 @@ import { shadeOfPart } from '../../utils/helpers';
 
 function WorkoutDetail({ workout, onCloseModal }) {
   const { workoutName, image, awareness, part, equipment } = workout;
+  console.log();
 
   const detailHeight = window.innerHeight - 60;
   const detailWidth = window.innerWidth / 1.9;
